@@ -87,5 +87,9 @@ $headers .= "Content-Type: multipart/mixed; boundary={$separator}\r\n";
 
 $subject = "Crash Report: {$json['PACKAGE_NAME']} {$json['APP_VERSION_NAME']} on Android {$json['ANDROID_VERSION']} | {$json['REPORT_ID']}";
 
-// Now send the maiL!
+// Now send the mail!
 mail($to, $subject, $message, $headers);
+
+// Done!
+header("Content-Type: text/plain");
+echo "Thanks!";
