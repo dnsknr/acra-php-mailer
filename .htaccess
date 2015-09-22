@@ -1,0 +1,10 @@
+#
+# Password protected the acra.php file to prevent
+# unauthorized usage.
+#
+<FilesMatch "acra.php">
+  AuthName "ACRA PHP Mailer"
+  AuthType Basic
+  AuthUserFile /path/to/your/.htpasswd
+  require valid-user
+</FilesMatch>
