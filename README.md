@@ -51,7 +51,7 @@ The full documentation of ACRA is available on [www.acra.ch](http://www.acra.ch)
   ```
   dependencies {
       ... your other dependencies...
-      compile "ch.acra:acra:4.6.2"
+      compile "ch.acra:acra:4.7.0"
   }
   ```
 2. Create or update an Application subclass and add ACRA to it:
@@ -61,7 +61,8 @@ The full documentation of ACRA is available on [www.acra.ch](http://www.acra.ch)
       formUri = "http://www.your.url/acra.php",
       formUriBasicAuthLogin = "your username", // optional
       formUriBasicAuthPassword = "your password",  // optional
-      reportType = org.acra.sender.HttpSender.Type.JSON
+      reportType = org.acra.sender.HttpSender.Type.JSON,
+      sendReportsAtShutdown = false
   )
   public class MyApplication extends Application {
       @Override
@@ -91,6 +92,7 @@ The full documentation of ACRA is available on [www.acra.ch](http://www.acra.ch)
 5. Update your ProGuard file to keep ACRA classes, all details can be found [here](https://github.com/ACRA/acra/wiki/ProGuard):
 
   ```
+  -renamesourcefileattribute SourceFile
   -keepattributes SourceFile,LineNumberTable
   -keep class org.acra.** { *; }
   ```
